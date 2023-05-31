@@ -296,9 +296,9 @@ function SignupComponent_div_5_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const ctx_r136 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    const ctx_r137 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r136.errorMessage);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r137.errorMessage);
 } }
 function SignupComponent_span_11_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span");
@@ -344,13 +344,13 @@ function SignupComponent_span_48_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "span", 29);
 } }
 function SignupComponent_ng_template_55_Template(rf, ctx) { if (rf & 1) {
-    const _r149 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    const _r150 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 30);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h4", 31);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Terms & Conditions");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 32);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SignupComponent_ng_template_55_Template_button_click_3_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r149); const ctx_r148 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r148.modalRef.hide(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SignupComponent_ng_template_55_Template_button_click_3_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r150); const ctx_r149 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r149.modalRef.hide(); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "span", 33);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "\u00D7");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -486,7 +486,7 @@ class SignupComponent {
 }
 SignupComponent.ɵfac = function SignupComponent_Factory(t) { return new (t || SignupComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__["BsModalService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_shared_core_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"])); };
 SignupComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SignupComponent, selectors: [["app-signup"]], outputs: { isAddedUser: "isAddedUser" }, decls: 57, vars: 26, consts: [[1, "brows"], [1, "container"], [1, "fw-bold", "pb-2"], ["class", "alert alert-danger fade show", "role", "alert", 4, "ngIf"], ["action", "", 3, "formGroup"], [1, "form-row", 2, "margin-top", "5px"], [1, "col-sm-12", "col-md-12", "col-lg-6"], ["type", "email", "placeholder", "Email", "name", "email", "formControlName", "emailFormControl", 1, "form-control-signup", 3, "ngModel", "ngModelChange"], [1, "invalid-feedback"], [4, "ngIf"], ["type", "text", "placeholder", "First Name", "name", "firstName", "formControlName", "firstNameFormControl", 1, "form-control-signup", 3, "ngModel", "ngModelChange"], ["type", "text", "placeholder", "Last Name", "name", "lastName", "formControlName", "lastNameFormControl", 1, "form-control-signup", 3, "ngModel", "ngModelChange"], ["type", "password", "placeholder", "Password", "name", "password", "formControlName", "passwordFormControl", 1, "form-control-signup", 3, "ngModel", "ngModelChange", "keyup"], ["type", "password", "placeholder", "Confirm Password", "name", "confirmpassword", "formControlName", "confirmPasswordFormControl", 1, "form-control-signup", 3, "keyup"], [1, "form-group", 2, "margin-top", "5px"], [1, "custom-control", "custom-checkbox"], ["type", "checkbox", "id", "tncCheck", "name", "tnccheck", "formControlName", "tncFormControl", 1, "custom-control-input"], ["for", "tncCheck", 1, "custom-control-label", "tncCheck", 2, "color", "darkgray"], ["href", "javascript:void(0);", 2, "color", "lightcoral", 3, "click"], [1, "form-row", "align-items-left"], [1, "form-group", "col-12", "col-sm-12", "col-md-6"], ["type", "submit", 1, "btn", "btn-danger", 3, "disabled", "click"], ["class", "spinner-border spinner-border-sm ml-1", "role", "status", "aria-hidden", "true", 4, "ngIf"], [1, "sr-only"], [1, "col-12", "col-sm-12", "col-md-auto", 2, "color", "black"], ["href", "javascript:", 2, "color", "lightcoral", 3, "click"], [1, "form-row", "mt-2"], ["termsModal", ""], ["role", "alert", 1, "alert", "alert-danger", "fade", "show"], ["role", "status", "aria-hidden", "true", 1, "spinner-border", "spinner-border-sm", "ml-1"], [1, "modal-header", "bg-danger"], [1, "modal-title", "pull-left", "text-white"], ["type", "button", "aria-label", "Close", 1, "close", "pull-right", "text-white", 3, "click"], ["aria-hidden", "true"], [1, "modal-body"]], template: function SignupComponent_Template(rf, ctx) { if (rf & 1) {
-        const _r150 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        const _r151 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "main");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "section", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 1);
@@ -554,7 +554,7 @@ SignupComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "label", 17);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](39, " I agree to ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "a", 18);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SignupComponent_Template_a_click_40_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r150); const _r146 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](56); return ctx.openModal(_r146, "modal-xl modal-dialog-scrollable"); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SignupComponent_Template_a_click_40_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r151); const _r147 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](56); return ctx.openModal(_r147, "modal-xl modal-dialog-scrollable"); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](41, "Terms and Conditions");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -2746,7 +2746,7 @@ const environment = {
     environmentName: 'NA',
     development: false,
     //host: 'https://www.artiara.in:4500/'
-    host: 'http://localhost:4500'
+    host: 'https://8080-cs-372833081167-default.cs-asia-southeast1-bool.cloudshell.dev'
 };
 /*
  * For easier debugging in development mode, you can import the following file
