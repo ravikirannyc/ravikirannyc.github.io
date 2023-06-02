@@ -1749,8 +1749,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(productDetailsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this6 = this;
-
           this.showLoading = true;
 
           if (this.setWishListFlag) {
@@ -1762,13 +1760,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.selectedProduct = this.product.masterProductId;
           this.getPrdocutsBySimilarity(this.selectedProduct);
           this.route.params.subscribe(function () {
-            _this6.authenticationService.loginStatus().subscribe(function (res) {
-              if (!res) {
-                sessionStorage.removeItem('iuli');
-
-                _this6.router.navigate(['/']);
-              }
-            });
+            /*  this.authenticationService.loginStatus().subscribe(res => {
+               if(!res) {
+                 sessionStorage.removeItem('iuli');
+                 this.router.navigate(['/']);
+               }
+             }); */
           });
         }
       }, {
@@ -1795,16 +1792,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addPrdocutsToWishList",
         value: function addPrdocutsToWishList(value) {
-          var _this7 = this;
+          var _this6 = this;
 
           if (!this.authenticationService.isUserLoggedIn()) {
             this.authenticationService.login();
           } else {
             this.productService.addProductsToWishList(value).subscribe(function (res) {
               if (!res) {
-                _this7.isProductWishListed = false;
+                _this6.isProductWishListed = false;
               } else {
-                _this7.isProductWishListed = true;
+                _this6.isProductWishListed = true;
               }
             });
           }
@@ -1833,20 +1830,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "removePrdocutFromWishList",
         value: function removePrdocutFromWishList(value) {
-          var _this8 = this;
+          var _this7 = this;
 
           if (!this.authenticationService.isUserLoggedIn()) {
             this.authenticationService.login();
           } else {
             this.productService.removeProductsFromWishList(value).subscribe(function (res) {
-              _this8.isProductWishListed = false;
+              _this7.isProductWishListed = false;
             });
           }
         }
       }, {
         key: "getPrdocutsBySimilarity",
         value: function getPrdocutsBySimilarity(selectedProduct) {
-          var _this9 = this;
+          var _this8 = this;
 
           //This is for passing data to datalayer for google analytics
 
@@ -1857,9 +1854,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.showLoading = true;
           this.productService.getProductsBySimilarity(selectedProduct).subscribe(function (res) {
             // console.log(res);
-            _this9.similarProducts = _this9.shuffle(res);
-            _this9.showLoading = false;
-            _this9.numberOfSimilarProducts = _this9.similarProducts.length; // this.retailerWiseProducts = this.groupBy(this.products, 'retailerType');
+            _this8.similarProducts = _this8.shuffle(res);
+            _this8.showLoading = false;
+            _this8.numberOfSimilarProducts = _this8.similarProducts.length; // this.retailerWiseProducts = this.groupBy(this.products, 'retailerType');
             // console.log(this.groupBy(this.products, 'retailerType'));
             //this.getQueryParams();
           });
@@ -2419,16 +2416,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addPrdocutsToWishList",
         value: function addPrdocutsToWishList(value) {
-          var _this10 = this;
+          var _this9 = this;
 
           if (!this.authenticationService.isUserLoggedIn()) {
             this.authenticationService.login();
           } else {
             this.productService.addProductsToWishList(value).subscribe(function (res) {
               if (!res) {
-                _this10.isProductWishListed = false;
+                _this9.isProductWishListed = false;
               } else {
-                _this10.isProductWishListed = true;
+                _this9.isProductWishListed = true;
               }
             });
           }
@@ -2452,13 +2449,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "removePrdocutFromWishList",
         value: function removePrdocutFromWishList(value) {
-          var _this11 = this;
+          var _this10 = this;
 
           if (!this.authenticationService.isUserLoggedIn()) {
             this.authenticationService.login();
           } else {
             this.productService.removeProductsFromWishList(value).subscribe(function (res) {
-              _this11.isProductWishListed = false;
+              _this10.isProductWishListed = false;
             });
           }
         }
@@ -3061,16 +3058,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addPrdocutsToWishList",
         value: function addPrdocutsToWishList(value) {
-          var _this12 = this;
+          var _this11 = this;
 
           if (!this.authenticationService.isUserLoggedIn()) {
             this.authenticationService.login();
           } else {
             this.productService.addProductsToWishList(value).subscribe(function (res) {
               if (!res) {
-                _this12.isProductWishListed = false;
+                _this11.isProductWishListed = false;
               } else {
-                _this12.isProductWishListed = true;
+                _this11.isProductWishListed = true;
               }
             });
           }
@@ -3078,13 +3075,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "removePrdocutFromWishList",
         value: function removePrdocutFromWishList(value) {
-          var _this13 = this;
+          var _this12 = this;
 
           if (!this.authenticationService.isUserLoggedIn()) {
             this.authenticationService.login();
           } else {
             this.productService.removeProductsFromWishList(value).subscribe(function (res) {
-              _this13.isProductWishListed = false;
+              _this12.isProductWishListed = false;
             });
           }
         }
@@ -3498,16 +3495,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addPrdocutsToWishList",
         value: function addPrdocutsToWishList(value) {
-          var _this14 = this;
+          var _this13 = this;
 
           if (!this.authenticationService.isUserLoggedIn()) {
             this.authenticationService.login();
           } else {
             this.productService.addProductsToWishList(value).subscribe(function (res) {
               if (!res) {
-                _this14.isProductWishListed = false;
+                _this13.isProductWishListed = false;
               } else {
-                _this14.isProductWishListed = true;
+                _this13.isProductWishListed = true;
               }
             });
           }
@@ -3515,13 +3512,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "removePrdocutFromWishList",
         value: function removePrdocutFromWishList(value) {
-          var _this15 = this;
+          var _this14 = this;
 
           if (!this.authenticationService.isUserLoggedIn()) {
             this.authenticationService.login();
           } else {
             this.productService.removeProductsFromWishList(value).subscribe(function (res) {
-              _this15.isProductWishListed = false;
+              _this14.isProductWishListed = false;
             });
           }
         }

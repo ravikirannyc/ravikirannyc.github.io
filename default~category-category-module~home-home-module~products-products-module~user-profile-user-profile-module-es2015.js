@@ -1034,12 +1034,12 @@ class productDetailsComponent {
         this.selectedProduct = this.product.masterProductId;
         this.getPrdocutsBySimilarity(this.selectedProduct);
         this.route.params.subscribe(() => {
-            this.authenticationService.loginStatus().subscribe(res => {
-                if (!res) {
-                    sessionStorage.removeItem('iuli');
-                    this.router.navigate(['/']);
-                }
-            });
+            /*  this.authenticationService.loginStatus().subscribe(res => {
+               if(!res) {
+                 sessionStorage.removeItem('iuli');
+                 this.router.navigate(['/']);
+               }
+             }); */
         });
     }
     openSignupModal(classNames) {

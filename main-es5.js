@@ -1960,35 +1960,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "updateUserProfile",
         value: function updateUserProfile() {
-          var _this3 = this;
-
           this.showZipcodeLoading = true;
-          this.userProfileService.updateUserProfile(this.userInfo).subscribe(function (res) {
-            _this3.showZipcodeLoading = false;
-
-            _this3.zipcodeModalRef.hide();
-          }, function (error) {
-            _this3.showZipcodeLoading = false;
-          });
+          /*    this.userProfileService.updateUserProfile(this.userInfo).subscribe(res => {
+               this.showZipcodeLoading = false;
+               this.zipcodeModalRef.hide();
+             }, (error) => {
+               this.showZipcodeLoading = false;
+             }); */
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this4 = this;
+          var _this3 = this;
 
           this.route.queryParams.subscribe(function (params) {
             if (params.signup === 'true') {
               setTimeout(function () {
-                _this4.openSignupModal('modal-xl modal-dialog-centered signup');
+                _this3.openSignupModal('modal-xl modal-dialog-centered signup');
               }, 100);
             }
 
-            _this4.dataService.currentMessage.subscribe(function (message) {
-              _this4.isHome = message;
+            _this3.dataService.currentMessage.subscribe(function (message) {
+              _this3.isHome = message;
             });
           });
           this.route.params.subscribe(function () {
-            _this4.refreshSections(src_app_shared_section_section__WEBPACK_IMPORTED_MODULE_7__["userProfileSections"]);
+            _this3.refreshSections(src_app_shared_section_section__WEBPACK_IMPORTED_MODULE_7__["userProfileSections"]);
           });
           this.getUserInfo();
 
@@ -1997,10 +1994,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           this.userProfileService.currentprofilePicture.subscribe(function (profilePicture) {
-            if (profilePicture.length !== 0) _this4.userInfo.profilePicture = profilePicture;
+            if (profilePicture.length !== 0) _this3.userInfo.profilePicture = profilePicture;
           });
           this.userProfileService.currentUserInfo.subscribe(function (userInfo) {
-            _this4.userInfo = userInfo;
+            _this3.userInfo = userInfo;
           }); // window.addEventListener('scroll', this.scrollEvent, true);
           //checking if there is BG image behind the navbar
           // if (document.querySelector("section").classList.contains('jumbotron')) {
@@ -2079,29 +2076,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "sendEarlyAccessRequest",
         value: function sendEarlyAccessRequest() {
-          var _this5 = this;
+          var _this4 = this;
 
           this.support.supportType = src_app_shared_models_SupportType__WEBPACK_IMPORTED_MODULE_2__["SupportType"].early_access;
           this.isProcessingRequest = true;
           this.supportService.sendEarlyAccessRequest(this.support).subscribe(function (res) {
-            _this5.isSupportError = false;
-            _this5.isProcessingRequest = false; // this.feedbackToggled = false;
+            _this4.isSupportError = false;
+            _this4.isProcessingRequest = false; // this.feedbackToggled = false;
 
-            _this5.formSubmitted = true;
-            _this5.support = new src_app_shared_models_support__WEBPACK_IMPORTED_MODULE_1__["Support"]();
-            _this5.emailExists = false;
+            _this4.formSubmitted = true;
+            _this4.support = new src_app_shared_models_support__WEBPACK_IMPORTED_MODULE_1__["Support"]();
+            _this4.emailExists = false;
           }, function (error) {
-            _this5.isSupportError = true;
-            _this5.isProcessingRequest = false;
+            _this4.isSupportError = true;
+            _this4.isProcessingRequest = false;
 
             if (error.error.message == "email_exists") {
-              _this5.emailExists = true;
+              _this4.emailExists = true;
             } else if (error.error.message == "invalid_email") {
-              _this5.errorMessage = "Please provide a valid email address";
-              _this5.emailExists = false;
+              _this4.errorMessage = "Please provide a valid email address";
+              _this4.emailExists = false;
             } else {
-              _this5.errorMessage = "Oh no! Something went wrong, please try again in a while";
-              _this5.emailExists = false;
+              _this4.errorMessage = "Oh no! Something went wrong, please try again in a while";
+              _this4.emailExists = false;
             }
           });
         }
@@ -2116,44 +2113,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getUserInfo",
         value: function getUserInfo() {
-          var _this6 = this;
-
-          this.userProfileService.getUserInfo().subscribe(function (res) {
-            _this6.userInfo = res; //console.log(res);
-
-            if (!_this6.userInfo.zipCode) {//this.openZipcodeModal('modal-xl modal-dialog-centered zipcode');
-            }
-          });
+          /*  this.userProfileService.getUserInfo().subscribe(res => {
+             this.userInfo = res;
+             //console.log(res);
+             if(!this.userInfo.zipCode) {
+               //this.openZipcodeModal('modal-xl modal-dialog-centered zipcode');
+             }
+                  }) */
         }
       }, {
         key: "logout",
         value: function logout() {
-          var _this7 = this;
+          var _this5 = this;
 
           this.showUserMenu = false;
           this.authenticationService.logout().subscribe(function (res) {
-            _this7.userInfo = new src_app_shared_models_user_info__WEBPACK_IMPORTED_MODULE_5__["UserInfo"]();
+            _this5.userInfo = new src_app_shared_models_user_info__WEBPACK_IMPORTED_MODULE_5__["UserInfo"]();
           }, function (error) {
             sessionStorage.removeItem('iuli');
 
-            _this7.router.navigate(['/']);
+            _this5.router.navigate(['/']);
           });
         }
       }, {
         key: "validateZipcode",
         value: function validateZipcode() {
-          var _this8 = this;
+          var _this6 = this;
 
           if (!this.userZipcode.get('userZipcodeFormControl').invalid) {
             this.isValidatingZipcode = true;
             this.zipcodeService.getCityState(this.userInfo.zipCode).subscribe(function (locationInfoRes) {
-              _this8.userInfo.city = locationInfoRes.city;
-              _this8.userInfo.state = locationInfoRes.state;
-              _this8.isValidatingZipcode = false;
-              _this8.isInValidZipcode = false;
+              _this6.userInfo.city = locationInfoRes.city;
+              _this6.userInfo.state = locationInfoRes.state;
+              _this6.isValidatingZipcode = false;
+              _this6.isInValidZipcode = false;
             }, function (error) {
-              _this8.isValidatingZipcode = false;
-              _this8.isInValidZipcode = true;
+              _this6.isValidatingZipcode = false;
+              _this6.isInValidZipcode = true;
             });
           }
         }
@@ -2620,26 +2616,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return res;
           }));
         }
-      }, {
-        key: "loginStatus",
-        value: function loginStatus() {
-          var _this9 = this;
+        /*    public loginStatus() {
+               return this.http.get("/api/v1/user/login-status").pipe(map((res) => {
+                   this.sendUserLoginStatus(res["loginStatus"]);
+                   return res["loginStatus"];
+               }));
+           } */
 
-          return this.http.get("/api/v1/user/login-status").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])(function (res) {
-            _this9.sendUserLoginStatus(res["loginStatus"]);
-
-            return res["loginStatus"];
-          }));
-        }
       }, {
         key: "logout",
         value: function logout() {
-          var _this10 = this;
+          var _this7 = this;
 
           return this.http.get("/api/v1/logout").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])(function (res) {
             sessionStorage.removeItem('iuli');
 
-            _this10.router.navigate(['/']);
+            _this7.router.navigate(['/']);
 
             return res;
           }));
@@ -3072,33 +3064,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function sendUserInfo(data) {
           this.userInfo.next(data);
         }
-      }, {
-        key: "getUserInfo",
-        value: function getUserInfo() {
-          var _this11 = this;
+        /*  public getUserInfo() {
+             return this.http.get("/api/v1/user").pipe(map((res: UserInfo) => {
+                 //console.log(res);
+                 //console.log(res["UserInfo"]);
+                 this.sendUserInfo(res["UserInfo"]);
+                 sessionStorage.setItem('iuli', res["UserInfo"].email);
+                 return res["UserInfo"];
+             }));
+         } */
 
-          return this.http.get("/api/v1/user").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
-            //console.log(res);
-            //console.log(res["UserInfo"]);
-            _this11.sendUserInfo(res["UserInfo"]);
+        /*   updateUserProfile(userInfo) {
+              return this.http.put("/api/v1/user", userInfo).pipe(map((res) => {
+                  //console.log(res);
+                  //console.log(res["UserInfo"]);
+                  this.sendUserInfo(res["UserInfo"]);
+                  return res;
+              }));
+          } */
 
-            sessionStorage.setItem('iuli', res["UserInfo"].email);
-            return res["UserInfo"];
-          }));
-        }
-      }, {
-        key: "updateUserProfile",
-        value: function updateUserProfile(userInfo) {
-          var _this12 = this;
-
-          return this.http.put("/api/v1/user", userInfo).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
-            //console.log(res);
-            //console.log(res["UserInfo"]);
-            _this12.sendUserInfo(res["UserInfo"]);
-
-            return res;
-          }));
-        }
       }, {
         key: "updateUserPassword",
         value: function updateUserPassword(passwordDto) {
@@ -3109,11 +3093,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "uploadProfilePicture",
         value: function uploadProfilePicture(profilePicture) {
-          var _this13 = this;
+          var _this8 = this;
 
           //console.log(profilePicture)
           return this.http.post("/api/v1/profile-picture", profilePicture).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
-            _this13.sendProfilePicture(res["profilePicture"]);
+            _this8.sendProfilePicture(res["profilePicture"]);
 
             return res["profilePicture"];
           }));

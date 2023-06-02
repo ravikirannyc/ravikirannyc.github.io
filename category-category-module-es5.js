@@ -298,13 +298,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this.categorySelect = src_app_shared_utility_utils_service__WEBPACK_IMPORTED_MODULE_1__["default"].stringEnumToKeyValue(src_app_shared_enums_category_enum__WEBPACK_IMPORTED_MODULE_2__["Category"]); //console.log(this.categoryItems)
           });
           this.route.params.subscribe(function () {
-            _this.authenticationService.loginStatus().subscribe(function (res) {
-              if (!res) {
-                sessionStorage.removeItem('iuli');
-
-                _this.router.navigate(['/']);
-              }
-            });
+            /*   this.authenticationService.loginStatus().subscribe(res => {
+                if(!res) {
+                  sessionStorage.removeItem('iuli');
+                  this.router.navigate(['/']);
+                }
+              }); */
           });
         }
       }, {

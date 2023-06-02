@@ -139,12 +139,12 @@ class CategoryListComponent {
             //console.log(this.categoryItems)
         });
         this.route.params.subscribe(() => {
-            this.authenticationService.loginStatus().subscribe(res => {
-                if (!res) {
-                    sessionStorage.removeItem('iuli');
-                    this.router.navigate(['/']);
+            /*   this.authenticationService.loginStatus().subscribe(res => {
+                if(!res) {
+                  sessionStorage.removeItem('iuli');
+                  this.router.navigate(['/']);
                 }
-            });
+              }); */
         });
     }
     getPrdocutsByCategory() {

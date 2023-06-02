@@ -163,7 +163,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _shared_pipe_productfilter_pipe__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
     /*! ../../../shared/pipe/productfilter.pipe */
-    "./src/app/shared/pipe/productfilter.pipe.ts"); //import { BrandNameItems } from 'src/app/shared/enums/brandName.enum';
+    "./src/app/shared/pipe/productfilter.pipe.ts"); //import { ProductTypeItems } from 'src/app/shared/enums/productType.enum';
+    //import { DropDownValues } from 'src/app/shared/models/DropDownValues';
+    //import { BrandNameItems } from 'src/app/shared/enums/brandName.enum';
     //import { FittingTypeItems } from 'src/app/shared/enums/FittingType.enum';
     //import { OrnamentationItems } from 'src/app/shared/enums/ornamentation.enum';
     //import { SleeveLengthItems } from 'src/app/shared/enums/sleeveLength.enum';
@@ -632,8 +634,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this.zipcode = params.zip;
 
             if (!_this.isDropDownsLoaed) {
-              _this.getDropDownValuesOnLoad('all');
-
+              // this.getDropDownValuesOnLoad('all');
               _this.isDropDownsLoaed = true; //console.log("drop downs loaded");
             }
 
@@ -1224,12 +1225,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           // Remove query params
         }
       }, {
-        key: "onPopState",
-        value: function onPopState(event) {
-          window.location.reload();
-          this.callSearchProducts('category', this.category, this.outfitType, this.brandName, this.color, this.priceRange, this.neckType, this.fittingType, this.sleeveLength, this.patternType, this.borderStyle, this.retailerType, this.ornamentation);
-        }
-      }, {
         key: "titleZipcodeFC",
         get: function get() {
           return this.titleSearchFormGroup.get('titleZipcodeFormControl');
@@ -1332,13 +1327,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.productSearchModal = _t.first);
         }
       },
-      hostBindings: function ProductSearchBoxComponent_HostBindings(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("popstate", function ProductSearchBoxComponent_popstate_HostBindingHandler($event) {
-            return ctx.onPopState($event);
-          }, false, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresolveWindow"]);
-        }
-      },
       decls: 11,
       vars: 3,
       consts: [[1, "browse", "py-1"], [1, "container", 2, "margin-top", "120px"], [1, "row"], [1, "col-sm-12"], ["class", "col-sm-12", 4, "ngIf"], [1, "container", 2, "margin-top", "5px"], ["class", "col-12 mb-1", 4, "ngIf"], ["class", "browse py-1", 4, "ngIf"], [3, "formGroup"], [1, "form-row"], ["type", "text", "id", "inlineFormInputName2", "name", "searchKey", "placeholder", "Search", "formControlName", "titleKeywordFormControl", 1, "form-control-search", "w-75", 3, "ngModel", "ngModelChange"], ["class", "invalid-feedback", 4, "ngIf"], [2, "margin-left", "10px", "margin-top", "5px"], [3, "click"], [1, "fas", "fa-search", "fa-lg"], [1, "invalid-feedback"], [4, "ngIf"], [1, "col-12", "mb-1"], ["action", "", 1, "p-2", "bg-white", 3, "formGroup"], [1, "col-auto", "col-md-4", "col-lg-4", "col-xl-2", 2, "margin-top", "4px"], [1, "col-auto", "col-md-4", "col-lg-4", "col-xl-2"], ["id", "categoryItems", "bindLabel", "label", "bindValue", "label", "name", "category", "formControlName", "categoryCategoryFormControl", 3, "items", "clearable", "searchable", "ngModel", "ngModelChange", "change"], [1, "container"], [1, "col-sm-12", "col-md-8", "mb-1"], [1, "text-left", "w-100", "mb-0", 2, "margin-top", "10px"], ["class", "alert alert-warning", "role", "alert", 4, "ngIf"], ["style", "margin-top: 5px;", "class", "col-6 col-md-3 col-lg-3 col-xl-3", 4, "ngFor", "ngForOf"], ["class", "col-sm-12 col-md-6 col-lg-3 mb-3", 4, "ngIf"], [1, "text-right", "my-4", "loadmore"], ["class", "btn btn-sm btn-danger showMoreButton", 3, "click", 4, "ngIf"], ["role", "alert", 1, "alert", "alert-danger", "mt-3"], ["role", "alert", 1, "alert", "alert-warning"], [1, "col-6", "col-md-3", "col-lg-3", "col-xl-3", 2, "margin-top", "5px"], [3, "product", "page"], [1, "col-sm-12", "col-md-6", "col-lg-3", "mb-3"], [1, "btn", "btn-sm", "btn-danger", "showMoreButton", 3, "click"]],
@@ -1427,10 +1415,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           args: ['productSearchModal', {
             "static": false
           }]
-        }],
-        onPopState: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"],
-          args: ['window:popstate', ['$event']]
         }]
       });
     })();
@@ -1778,8 +1762,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formGroup", ctx_r152.categorySearchFormGroup);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("is-invalid", ctx_r152.categorySearchFormGroup.get("categoryCategoryFormControl").invalid);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("items", ctx_r152.categoryItems)("clearable", true)("searchable", true)("ngModel", ctx_r152.category);
 
@@ -3377,12 +3359,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           // Remove query params
         }
       }, {
-        key: "onPopState",
-        value: function onPopState(event) {
-          window.location.reload();
-          this.callSearchProducts('category', this.category, this.outfitType, this.brandName, this.color, this.priceRange, this.neckType, this.fittingType, this.sleeveLength, this.patternType, this.borderStyle, this.retailerType, this.ornamentation);
-        }
-      }, {
         key: "titleZipcodeFC",
         get: function get() {
           return this.titleSearchFormGroup.get('titleZipcodeFormControl');
@@ -3488,13 +3464,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.productSortModal = _t.first);
         }
       },
-      hostBindings: function ProductSearchComponent_HostBindings(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("popstate", function ProductSearchComponent_popstate_HostBindingHandler($event) {
-            return ctx.onPopState($event);
-          }, false, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresolveWindow"]);
-        }
-      },
       decls: 11,
       vars: 3,
       consts: [[1, "browse", "search", "py-2"], ["hidden", "true", 1, "container"], [1, "row", 2, "margin-top", "65px"], ["class", "col-sm-12", 4, "ngIf"], ["class", "col-12 mb-1", 4, "ngIf"], ["class", "browse py-1", 4, "ngIf"], ["productSearchModal", ""], ["productSortModal", ""], [1, "col-sm-12"], ["action", "", 1, "p-2", "bg-white", 3, "formGroup"], [1, "form-row"], [1, "col-auto", "col-md-6", "col-lg-6", "col-xl-4"], ["type", "text", "id", "inlineFormInputName2", "name", "searchKey", "placeholder", "What are you looking for?", "formControlName", "titleKeywordFormControl", "required", "", 1, "form-control", "w-100", 3, "ngModel", "ngModelChange"], ["class", "invalid-feedback", 4, "ngIf"], [1, "col-auto", "col-md-2", "col-lg-2", "col-xl-1"], ["type", "submit", 1, "btn", "btn-danger", "w-100", 3, "disabled", "click"], [1, "invalid-feedback"], [4, "ngIf"], [1, "col-12", "mb-1"], [1, "col-auto", "col-md-4", "col-lg-4", "col-xl-2", 2, "margin-top", "4px"], [1, "col-auto", "col-md-4", "col-lg-4", "col-xl-2"], ["id", "categoryItems", "bindLabel", "label", "bindValue", "label", "name", "category", "formControlName", "categoryCategoryFormControl", 3, "items", "clearable", "searchable", "ngModel", "ngModelChange", "change"], [1, "browse", "py-1"], [1, "container", 2, "margin-top", "45px"], [1, "row"], [1, "col-sm-12", "col-md-4", "mb-1"], ["target", "_blank", "title", "Product Filter", 3, "click"], ["aria-hidden", "true", 1, "fa", "fa-filter", "fa-lg", 2, "font-size", "20px", "color", "lightcoral", "margin-left", "10px", "margin-right", "50px"], ["target", "_blank", "title", "Sort By", 3, "click"], ["aria-hidden", "true", 1, "fa", "fa-sort", "fa-lg", 2, "font-size", "28px", "color", "lightcoral", "margin-left", "10px"], ["target", "_blank", "title", "Product Filter", 2, "color", "lightcoral", "margin-left", "25px", "font-size", "smaller", 3, "click"], [1, "text-left", "w-100", "mb-0", 2, "margin-top", "30px"], ["class", "alert alert-warning", "role", "alert", 4, "ngIf"], ["style", "margin-top: 5px;", "class", "col-6 col-md-3 col-lg-3 col-xl-3", 4, "ngFor", "ngForOf"], ["class", "col-sm-12 col-md-6 col-lg-3 mb-3", 4, "ngIf"], [2, "text-align", "right", "margin-top", "20px", "text-decoration", "underline"], ["styele", "background-color:red", "class", "btn btn-danger showMoreButton", 3, "click", 4, "ngIf"], ["role", "alert", 1, "alert", "alert-danger", "mt-3"], ["role", "alert", 1, "alert", "alert-warning"], [1, "col-6", "col-md-3", "col-lg-3", "col-xl-3", 2, "margin-top", "5px"], [3, "product", "page"], [1, "col-sm-12", "col-md-6", "col-lg-3", "mb-3"], ["styele", "background-color:red", 1, "btn", "btn-danger", "showMoreButton", 3, "click"], ["type", "button", "aria-label", "Close", 1, "close", "pull-right", "text-dark", 2, "margin-right", "10px", 3, "click"], ["aria-hidden", "true", 2, "font-size", "xx-large", "color", "crimson"], [1, "container"], [1, "row", 2, "font-size", "small", "color", "lightcoral"], [1, "fa", "fa-angle-left", 2, "font-size", "36px"], [1, "col-md-6", "0col-lg-6", "col-xl-6", 2, "margin-top", "15px"], ["type", "submit", 1, "btn", "btn-danger", "w-100", 3, "click"], [1, "col-md-12", "col-lg-12", "col-xl-12", 2, "margin-top", "8px", "width", "100%"], [2, "width", "100%"], ["id", "categoryItems", "bindLabel", "label", "bindValue", "label", "name", "category", "formControlName", "categoryCategoryFormControl", 3, "is-invalid", "items", "clearable", "searchable", "ngModel", "ngModelChange", "change"], [1, "col-md-12", "col-lg-12", "col-xl-12", 2, "margin-top", "4px"], ["id", "brandNameItems", "multiple", "true", "placeholder", "Select", "bindLabel", "label", "bindValue", "label", "name", "brandName", "formControlName", "categoryCategoryFormControl2", 3, "is-invalid", "items", "clearable", "searchable", "ngModel", "ngModelChange"], ["id", "colorsItems", "bindLabel", "label", "bindValue", "label", "name", "color", "formControlName", "categoryCategoryFormControl3", "multiple", "true", "placeholder", "Select", 3, "is-invalid", "items", "clearable", "searchable", "ngModel", "ngModelChange"], ["id", "priceRangeItems", "bindLabel", "label", "bindValue", "label", "name", "priceRange", "formControlName", "categoryCategoryFormControl4", "multiple", "true", "placeholder", "Select", 3, "is-invalid", "items", "clearable", "searchable", "ngModel", "ngModelChange"], ["id", "retailerTypeItemsUi", "bindLabel", "label", "bindValue", "label", "name", "retailerType", "formControlName", "categoryCategoryFormControl12", "multiple", "true", "placeholder", "Select", 3, "is-invalid", "items", "clearable", "searchable", "ngModel", "ngModelChange"], ["class", "col-md-12 col-lg-12 col-xl-12", "style", "margin-top:4px;", 4, "ngIf"], ["id", "filter2Dropdowns", 1, "form-row"], ["class", "col-md-12 col-lg-12 col-xl-12", "style", "margin-top:4px;", "id", "neckTypeItems-div", 4, "ngIf"], ["class", "col-md-12 col-lg-12 col-xl-12", "style", "margin-top:4px;", "id", "sleeveLengthItems-div", 4, "ngIf"], [1, "col-md-6", "0col-lg-6", "col-xl-6", 2, "margin-top", "15px", "margin-bottom", "15px"], ["id", "productTypeItems", "bindLabel", "label", "bindValue", "label", "name", "outfitType", "formControlName", "categoryCategoryFormControl11", "multiple", "true", "placeholder", "Select", 3, "is-invalid", "items", "clearable", "searchable", "ngModel", "ngModelChange"], ["id", "neckTypeItems-div", 1, "col-md-12", "col-lg-12", "col-xl-12", 2, "margin-top", "4px"], ["id", "neckTypeItems", "bindLabel", "label", "bindValue", "label", "name", "neckType", "formControlName", "categoryCategoryFormControl5", "multiple", "true", "placeholder", "Select", 3, "is-invalid", "items", "clearable", "searchable", "ngModel", "ngModelChange"], ["id", "fittingTypeItems", "bindLabel", "label", "bindValue", "label", "name", "fittingType", "formControlName", "categoryCategoryFormControl6", "multiple", "true", "placeholder", "Select", 3, "is-invalid", "items", "clearable", "searchable", "ngModel", "ngModelChange"], ["id", "sleeveLengthItems-div", 1, "col-md-12", "col-lg-12", "col-xl-12", 2, "margin-top", "4px"], ["id", "sleeveLengthItems", "bindLabel", "label", "bindValue", "label", "name", "sleeveLength", "formControlName", "categoryCategoryFormControl7", "multiple", "true", "placeholder", "Select", 3, "is-invalid", "items", "clearable", "searchable", "ngModel", "ngModelChange"], ["id", "ornamentationItems", "bindLabel", "label", "bindValue", "label", "name", "ornamentation", "formControlName", "categoryCategoryFormControl8", "multiple", "true", "placeholder", "Select", 3, "is-invalid", "items", "clearable", "searchable", "ngModel", "ngModelChange"], ["id", "patternTypeItems", "bindLabel", "label", "bindValue", "label", "name", "patternType", "formControlName", "categoryCategoryFormControl9", "multiple", "true", "placeholder", "Select", 3, "is-invalid", "items", "clearable", "searchable", "ngModel", "ngModelChange"], [2, "margin-left", "30%", "margin-bottom", "10px"], ["id", "sortItems", "bindLabel", "label", "placeholder", "Sort by", "bindValue", "value", "name", "sortItem", 3, "items", "clearable", "ngModel", "ngModelChange"]],
@@ -3510,7 +3479,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, ProductSearchComponent_div_4_Template, 9, 6, "div", 3);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, ProductSearchComponent_div_5_Template, 8, 8, "div", 4);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, ProductSearchComponent_div_5_Template, 8, 6, "div", 4);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -3577,10 +3546,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           args: ['productSortModal', {
             "static": false
           }]
-        }],
-        onPopState: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"],
-          args: ['window:popstate', ['$event']]
         }]
       });
     })();

@@ -377,16 +377,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this = this;
-
           this.route.params.subscribe(function () {
-            _this.authenticationService.loginStatus().subscribe(function (res) {
-              if (!res) {
-                sessionStorage.removeItem('iuli');
-
-                _this.router.navigate(['/']);
-              }
-            });
+            /*   this.authenticationService.loginStatus().subscribe(res => {
+                if(!res) {
+                  sessionStorage.removeItem('iuli');
+                  this.router.navigate(['/']);
+                }
+              }); */
           });
           this.getUserProfile();
           this.getRetailers();
@@ -394,23 +391,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUserProfile",
         value: function getUserProfile() {
-          var _this2 = this;
-
           this.isLoadingUserInfo = true;
-          this.userProfileService.getUserInfo().subscribe(function (userInfo) {
-            _this2.userInfo = new src_app_shared_models_user_info__WEBPACK_IMPORTED_MODULE_2__["UserInfo"](userInfo);
-            _this2.isLoadingUserInfo = false;
-          });
+          /*    this.userProfileService.getUserInfo().subscribe(userInfo => {
+               this.userInfo = new UserInfo(userInfo);
+               this.isLoadingUserInfo = false;
+             }) */
         }
       }, {
         key: "getRetailers",
         value: function getRetailers() {
-          var _this3 = this;
+          var _this = this;
 
           this.isLoadingRetailers = true;
           this.productService.getRetailersList().subscribe(function (res) {
-            _this3.retailers = res;
-            _this3.isLoadingRetailers = false;
+            _this.retailers = res;
+            _this.isLoadingRetailers = false;
           });
         }
       }, {
@@ -1436,78 +1431,70 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ProfileComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this4 = this;
+          var _this2 = this;
 
           this.route.params.subscribe(function () {
-            _this4.authenticationService.loginStatus().subscribe(function (res) {
-              if (!res) {
-                sessionStorage.removeItem('iuli');
-
-                _this4.router.navigate(['/']);
-              }
-            });
+            /*   this.authenticationService.loginStatus().subscribe(res => {
+                if(!res) {
+                  sessionStorage.removeItem('iuli');
+                  this.router.navigate(['/']);
+                }
+              }); */
           });
           this.getUserInfo();
           this.userProfileService.currentUserInfo.subscribe(function (userInfo) {
-            _this4.userInfo = userInfo;
+            _this2.userInfo = userInfo;
           });
         }
       }, {
         key: "getUserInfo",
         value: function getUserInfo() {
-          var _this5 = this;
-
           this.showLoading = true;
           this.isUploadingImage = true;
-          this.userProfileService.getUserInfo().subscribe(function (res) {
-            _this5.userInfo = res;
-            _this5.showLoading = false;
-            _this5.isUploadingImage = false;
-          });
+          /*  this.userProfileService.getUserInfo().subscribe(res => {
+             this.userInfo = res;
+             this.showLoading = false;
+             this.isUploadingImage = false;
+           }); */
         }
       }, {
         key: "saveChanges",
         value: function saveChanges() {
-          var _this6 = this;
-
           this.showLoading = true;
-          this.userProfileService.updateUserProfile(this.userInfo).subscribe(function (res) {
-            //console.log(res);
-            _this6.isEditMode = false;
-            _this6.showLoading = false;
-            _this6.profileUpdateAlert = true;
-            setTimeout(function () {
-              return _this6.profileUpdateAlert = false;
-            }, 3000);
-          }, function (error) {
-            _this6.showLoading = false;
-            _this6.profileUpdateErrorAlert = true;
-            setTimeout(function () {
-              return _this6.profileUpdateErrorAlert = false;
-            }, 3000);
-          });
+          /*    this.userProfileService.updateUserProfile(this.userInfo).subscribe(res => {
+               //console.log(res);
+               this.isEditMode = false;
+               this.showLoading = false;
+          
+               this.profileUpdateAlert = true;
+               setTimeout(() => this.profileUpdateAlert = false, 3000);
+             }, (error) => {
+               this.showLoading = false;
+               this.profileUpdateErrorAlert = true;
+               setTimeout(() => this.profileUpdateErrorAlert = false, 3000);
+             }); */
         }
       }, {
         key: "changePassword",
         value: function changePassword() {
-          var _this7 = this;
+          var _this3 = this;
 
           var passwordDto = new src_app_shared_dto_password_dto__WEBPACK_IMPORTED_MODULE_3__["PasswordDto"]();
           passwordDto.value = this.password;
           this.isChangingProfile = true;
           this.userProfileService.updateUserPassword(passwordDto).subscribe(function (res) {
-            _this7.isPasswordChangeMode = false;
-            _this7.isChangingProfile = false;
-            _this7.passwordChangeAlert = true;
+            _this3.isPasswordChangeMode = false;
+            _this3.isChangingProfile = false;
+            _this3.passwordChangeAlert = true;
             setTimeout(function () {
-              return _this7.passwordChangeAlert = false;
+              return _this3.passwordChangeAlert = false;
             }, 3000);
           }, function (error) {
             // this.isPasswordChangeMode = false;
-            _this7.isChangingProfile = false;
-            _this7.passwordChangeErrorAlert = true;
+            _this3.isChangingProfile = false;
+            _this3.passwordChangeErrorAlert = true;
             setTimeout(function () {
-              return _this7.passwordChangeErrorAlert = false;
+              return _this3.passwordChangeErrorAlert = false;
             }, 3000);
           });
         }
@@ -1529,7 +1516,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "uploadProfilePicture",
         value: function uploadProfilePicture(e) {
-          var _this8 = this;
+          var _this4 = this;
 
           this.isUploadingImage = true;
           var file = e.target.files[0];
@@ -1552,31 +1539,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var formData = new FormData();
           formData.append('image', file);
           this.userProfileService.uploadProfilePicture(formData).subscribe(function (res) {
-            _this8.isUploadingImage = false;
-            _this8.profilePicUpdateErrorAlert = false;
-            _this8.selectedFile.nativeElement.value = '';
-            _this8.userInfo.profilePicture = res;
-            _this8.imageChangedEvent = '';
+            _this4.isUploadingImage = false;
+            _this4.profilePicUpdateErrorAlert = false;
+            _this4.selectedFile.nativeElement.value = '';
+            _this4.userInfo.profilePicture = res;
+            _this4.imageChangedEvent = '';
           }, function (error) {
-            _this8.profilePicUpdateErrorAlert = true;
-            _this8.isUploadingImage = false;
+            _this4.profilePicUpdateErrorAlert = true;
+            _this4.isUploadingImage = false;
           });
         }
       }, {
         key: "validateZipcode",
         value: function validateZipcode() {
-          var _this9 = this;
+          var _this5 = this;
 
           if (!this.userProfileFormGroup.get('userzipcodeFormControl').invalid) {
             this.isValidatingZipcode = true;
             this.zipcodeService.getCityState(this.userInfo.zipCode).subscribe(function (locationInfoRes) {
-              _this9.userInfo.city = locationInfoRes.city;
-              _this9.userInfo.state = locationInfoRes.state;
-              _this9.isValidatingZipcode = false;
-              _this9.isInValidZipcode = false;
+              _this5.userInfo.city = locationInfoRes.city;
+              _this5.userInfo.state = locationInfoRes.state;
+              _this5.isValidatingZipcode = false;
+              _this5.isInValidZipcode = false;
             }, function (error) {
-              _this9.isValidatingZipcode = false;
-              _this9.isInValidZipcode = true;
+              _this5.isValidatingZipcode = false;
+              _this5.isInValidZipcode = true;
             });
           }
         }
@@ -2207,26 +2194,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       var _super = _createSuper(UserProfileComponent);
 
       function UserProfileComponent(router, route) {
-        var _this10;
+        var _this6;
 
         _classCallCheck(this, UserProfileComponent);
 
-        _this10 = _super.call(this);
-        _this10.router = router;
-        _this10.route = route;
-        return _this10;
+        _this6 = _super.call(this);
+        _this6.router = router;
+        _this6.route = route;
+        return _this6;
       }
 
       _createClass(UserProfileComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this11 = this;
+          var _this7 = this;
 
           // this is called when the param changes means when user click on the tabs
           // from list of lcs it will call the api to get the LC by id.
           // it detect the change by route.params which is default Observable provided by angular
           this.route.params.subscribe(function () {
-            _this11.refreshSections(src_app_shared_section_section__WEBPACK_IMPORTED_MODULE_2__["userProfileSections"]);
+            _this7.refreshSections(src_app_shared_section_section__WEBPACK_IMPORTED_MODULE_2__["userProfileSections"]);
           });
         }
       }, {
@@ -2649,35 +2636,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(WishlistComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this12 = this;
+          var _this8 = this;
 
           this.route.params.subscribe(function () {
-            _this12.getPrdocutsByWishList();
+            _this8.getPrdocutsByWishList();
           });
           this.route.params.subscribe(function () {
-            _this12.authenticationService.loginStatus().subscribe(function (res) {
-              if (!res) {
-                sessionStorage.removeItem('iuli');
-
-                _this12.router.navigate(['/']);
-              }
-            });
+            /*   this.authenticationService.loginStatus().subscribe(res => {
+                if(!res) {
+                  sessionStorage.removeItem('iuli');
+                  this.router.navigate(['/']);
+                }
+              }); */
           });
         }
       }, {
         key: "getPrdocutsByWishList",
         value: function getPrdocutsByWishList() {
-          var _this13 = this;
+          var _this9 = this;
 
           this.products = [];
           this.showLoading = true;
           this.productService.getProductsByWishList().subscribe(function (res) {
             if (!res) {
-              _this13.products = [];
+              _this9.products = [];
             } else {
-              _this13.products = res;
-              _this13.showLoading = false;
-              _this13.totalSuccessProductsFound = _this13.products.length;
+              _this9.products = res;
+              _this9.showLoading = false;
+              _this9.totalSuccessProductsFound = _this9.products.length;
             }
           });
         }

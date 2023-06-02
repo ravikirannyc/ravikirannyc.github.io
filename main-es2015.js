@@ -1004,12 +1004,12 @@ class HeaderComponent extends src_app_shared_section_sectioned_components__WEBPA
     }
     updateUserProfile() {
         this.showZipcodeLoading = true;
-        this.userProfileService.updateUserProfile(this.userInfo).subscribe(res => {
-            this.showZipcodeLoading = false;
-            this.zipcodeModalRef.hide();
-        }, (error) => {
-            this.showZipcodeLoading = false;
-        });
+        /*    this.userProfileService.updateUserProfile(this.userInfo).subscribe(res => {
+             this.showZipcodeLoading = false;
+             this.zipcodeModalRef.hide();
+           }, (error) => {
+             this.showZipcodeLoading = false;
+           }); */
     }
     ngOnInit() {
         this.route.queryParams.subscribe(params => {
@@ -1131,13 +1131,14 @@ class HeaderComponent extends src_app_shared_section_sectioned_components__WEBPA
         this.authenticationService.login();
     }
     getUserInfo() {
-        this.userProfileService.getUserInfo().subscribe(res => {
-            this.userInfo = res;
-            //console.log(res);
-            if (!this.userInfo.zipCode) {
-                //this.openZipcodeModal('modal-xl modal-dialog-centered zipcode');
-            }
-        });
+        /*  this.userProfileService.getUserInfo().subscribe(res => {
+           this.userInfo = res;
+           //console.log(res);
+           if(!this.userInfo.zipCode) {
+             //this.openZipcodeModal('modal-xl modal-dialog-centered zipcode');
+           }
+     
+         }) */
     }
     logout() {
         this.showUserMenu = false;
@@ -1387,12 +1388,12 @@ class AuthenticationService {
             return res;
         }));
     }
-    loginStatus() {
-        return this.http.get("/api/v1/user/login-status").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])((res) => {
-            this.sendUserLoginStatus(res["loginStatus"]);
-            return res["loginStatus"];
-        }));
-    }
+    /*    public loginStatus() {
+           return this.http.get("/api/v1/user/login-status").pipe(map((res) => {
+               this.sendUserLoginStatus(res["loginStatus"]);
+               return res["loginStatus"];
+           }));
+       } */
     logout() {
         return this.http.get("/api/v1/logout").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])((res) => {
             sessionStorage.removeItem('iuli');
@@ -1624,23 +1625,23 @@ class UserProfileService {
     sendUserInfo(data) {
         this.userInfo.next(data);
     }
-    getUserInfo() {
-        return this.http.get("/api/v1/user").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => {
-            //console.log(res);
-            //console.log(res["UserInfo"]);
-            this.sendUserInfo(res["UserInfo"]);
-            sessionStorage.setItem('iuli', res["UserInfo"].email);
-            return res["UserInfo"];
-        }));
-    }
-    updateUserProfile(userInfo) {
-        return this.http.put("/api/v1/user", userInfo).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => {
-            //console.log(res);
-            //console.log(res["UserInfo"]);
-            this.sendUserInfo(res["UserInfo"]);
-            return res;
-        }));
-    }
+    /*  public getUserInfo() {
+         return this.http.get("/api/v1/user").pipe(map((res: UserInfo) => {
+             //console.log(res);
+             //console.log(res["UserInfo"]);
+             this.sendUserInfo(res["UserInfo"]);
+             sessionStorage.setItem('iuli', res["UserInfo"].email);
+             return res["UserInfo"];
+         }));
+     } */
+    /*   updateUserProfile(userInfo) {
+          return this.http.put("/api/v1/user", userInfo).pipe(map((res) => {
+              //console.log(res);
+              //console.log(res["UserInfo"]);
+              this.sendUserInfo(res["UserInfo"]);
+              return res;
+          }));
+      } */
     updateUserPassword(passwordDto) {
         return this.http.put("/api/v1/reset-password", passwordDto).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => {
             return res;

@@ -163,22 +163,22 @@ class DefaultStoreComponent {
     }
     ngOnInit() {
         this.route.params.subscribe(() => {
-            this.authenticationService.loginStatus().subscribe(res => {
-                if (!res) {
-                    sessionStorage.removeItem('iuli');
-                    this.router.navigate(['/']);
+            /*   this.authenticationService.loginStatus().subscribe(res => {
+                if(!res) {
+                  sessionStorage.removeItem('iuli');
+                  this.router.navigate(['/']);
                 }
-            });
+              }); */
         });
         this.getUserProfile();
         this.getRetailers();
     }
     getUserProfile() {
         this.isLoadingUserInfo = true;
-        this.userProfileService.getUserInfo().subscribe(userInfo => {
-            this.userInfo = new src_app_shared_models_user_info__WEBPACK_IMPORTED_MODULE_2__["UserInfo"](userInfo);
-            this.isLoadingUserInfo = false;
-        });
+        /*    this.userProfileService.getUserInfo().subscribe(userInfo => {
+             this.userInfo = new UserInfo(userInfo);
+             this.isLoadingUserInfo = false;
+           }) */
     }
     getRetailers() {
         this.isLoadingRetailers = true;
@@ -667,12 +667,12 @@ class ProfileComponent {
     }
     ngOnInit() {
         this.route.params.subscribe(() => {
-            this.authenticationService.loginStatus().subscribe(res => {
-                if (!res) {
-                    sessionStorage.removeItem('iuli');
-                    this.router.navigate(['/']);
+            /*   this.authenticationService.loginStatus().subscribe(res => {
+                if(!res) {
+                  sessionStorage.removeItem('iuli');
+                  this.router.navigate(['/']);
                 }
-            });
+              }); */
         });
         this.getUserInfo();
         this.userProfileService.currentUserInfo.subscribe(userInfo => {
@@ -699,25 +699,26 @@ class ProfileComponent {
     getUserInfo() {
         this.showLoading = true;
         this.isUploadingImage = true;
-        this.userProfileService.getUserInfo().subscribe(res => {
-            this.userInfo = res;
-            this.showLoading = false;
-            this.isUploadingImage = false;
-        });
+        /*  this.userProfileService.getUserInfo().subscribe(res => {
+           this.userInfo = res;
+           this.showLoading = false;
+           this.isUploadingImage = false;
+         }); */
     }
     saveChanges() {
         this.showLoading = true;
-        this.userProfileService.updateUserProfile(this.userInfo).subscribe(res => {
-            //console.log(res);
-            this.isEditMode = false;
-            this.showLoading = false;
-            this.profileUpdateAlert = true;
-            setTimeout(() => this.profileUpdateAlert = false, 3000);
-        }, (error) => {
-            this.showLoading = false;
-            this.profileUpdateErrorAlert = true;
-            setTimeout(() => this.profileUpdateErrorAlert = false, 3000);
-        });
+        /*    this.userProfileService.updateUserProfile(this.userInfo).subscribe(res => {
+             //console.log(res);
+             this.isEditMode = false;
+             this.showLoading = false;
+       
+             this.profileUpdateAlert = true;
+             setTimeout(() => this.profileUpdateAlert = false, 3000);
+           }, (error) => {
+             this.showLoading = false;
+             this.profileUpdateErrorAlert = true;
+             setTimeout(() => this.profileUpdateErrorAlert = false, 3000);
+           }); */
     }
     changePassword() {
         let passwordDto = new src_app_shared_dto_password_dto__WEBPACK_IMPORTED_MODULE_3__["PasswordDto"]();
@@ -1302,12 +1303,12 @@ class WishlistComponent {
             this.getPrdocutsByWishList();
         });
         this.route.params.subscribe(() => {
-            this.authenticationService.loginStatus().subscribe(res => {
-                if (!res) {
-                    sessionStorage.removeItem('iuli');
-                    this.router.navigate(['/']);
+            /*   this.authenticationService.loginStatus().subscribe(res => {
+                if(!res) {
+                  sessionStorage.removeItem('iuli');
+                  this.router.navigate(['/']);
                 }
-            });
+              }); */
         });
     }
     getPrdocutsByWishList() {
