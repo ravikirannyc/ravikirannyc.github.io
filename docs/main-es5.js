@@ -1870,9 +1870,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
     }
 
-    var _c4 = function _c4() {
+    var _c4 = function _c4(a0) {
       return {
-        "bg-white": true
+        "bg-white": a0
       };
     };
 
@@ -2207,7 +2207,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       },
       features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]],
       decls: 45,
-      vars: 21,
+      vars: 22,
       consts: [["id", "header", 1, "fixed-top", 3, "ngClass"], ["stickyMenu", ""], [1, "navbar", "navbar-expand-lg", "navbar-light"], [1, "container"], ["href", "javascript:", 1, "navbar-brand", 3, "routerLink"], ["src", "../../../assets/artiara_logo_final.svg"], [1, "navbar-nav", "ml-auto"], [1, "btn", "btn-link", "nav-link", 2, "color", "lightcoral", "font-size", "medium", "font-weight", "200", 3, "routerLink"], [3, "ngClass"], ["href", "javascript:void()", 3, "click"], [1, "media"], [1, "media-body", "ml-2"], [1, "mt-0", 2, "color", "#F8CFCF"], [1, "fa", "fa-angle-down", "d-inline-block"], [1, "side-menu", 3, "ngClass"], [1, "side-user", "d-flex", "align-items-center", "justify-content-between", "mb-5"], [1, "media", "align-items-center"], ["class", "", "size", "50", 3, "display", "name", 4, "ngIf"], ["class", "", "size", "70", 3, "display", "src", 4, "ngIf"], [2, "color", "lightcoral"], ["type", "button", "aria-label", "Close", 1, "close", 3, "click"], ["aria-hidden", "true"], [1, "side-nav-links"], [3, "click", 4, "ngFor", "ngForOf"], ["href", "javascript:", 3, "click"], [1, "fa", "fa-sign-out-alt", "mr-3"], [1, "bg-menu"], [1, "scrollTop"], [3, "click"], [1, "fas", "fa-chevron-up"], ["signupModal", ""], ["verificationEmailModal", ""], ["size", "50", 1, "", 3, "name"], ["size", "70", 1, "", 3, "src"], ["href", "javascript:"], [1, "modal-header", "bg-transparent", "signup-bg", "border-bottom-0"], ["type", "button", "aria-label", "Close", 1, "close", "pull-right", "text-dark", 3, "click"], [1, "modal-body", "signup-bg"], [3, "isAddedUser"], [1, "modal-header", 2, "color", "lightcoral"], ["aria-hidden", "true", 2, "font-size", "xx-large", "color", "red"], [2, "margin", "30px"], ["href", "#", 2, "color", "lightcoral", 3, "click"]],
       template: function HeaderComponent_Template(rf, ctx) {
         if (rf & 1) {
@@ -2365,19 +2365,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         if (rf & 2) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("scrolled", ctx.sticky);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](14, _c4));
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](15, _c5));
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](14, _c4, !ctx.isHome));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](16, _c5));
 
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](17, _c5));
+
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](17, _c6, !(ctx.userInfo == null ? null : ctx.userInfo.email)));
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](18, _c6, !(ctx.userInfo == null ? null : ctx.userInfo.email)));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
 
@@ -2385,7 +2385,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](19, _c7, ctx.showUserMenu));
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](20, _c7, ctx.showUserMenu));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
@@ -2807,56 +2807,56 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getRetailersList",
         value: function getRetailersList() {
-          return this.http.get("https://artiara-api-github.el.r.appspot.com/api/v1/retailer").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
+          return this.http.get("/api/v1/retailer").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
             return res["Retailers"];
           }));
         }
       }, {
         key: "getProductsByCategory",
         value: function getProductsByCategory(category) {
-          return this.http.get("https://artiara-api-github.el.r.appspot.com/api/v1/products/category/" + category).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
+          return this.http.get("/api/v1/products/category/" + category).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
             return res["Products"];
           }));
         }
       }, {
         key: "getProductsBySimilarity",
         value: function getProductsBySimilarity(selectedProduct) {
-          return this.http.post("https://artiara-api-github.el.r.appspot.com/api/v1/products/similar", selectedProduct).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
+          return this.http.post("/api/v1/products/similar", selectedProduct).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
             return res["Products"];
           }));
         }
       }, {
         key: "getDropDownValues",
         value: function getDropDownValues(itemName) {
-          return this.http.post("https://artiara-api-github.el.r.appspot.com/api/v1/dropdown/items", itemName).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
+          return this.http.post("/api/v1/dropdown/items", itemName).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
             return res["DropDownValues"];
           }));
         }
       }, {
         key: "getProductsByWishList",
         value: function getProductsByWishList() {
-          return this.http.get("https://artiara-api-github.el.r.appspot.com/api/v1/products/wishlist").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
+          return this.http.get("/api/v1/products/wishlist").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
             return res["Products"];
           }));
         }
       }, {
         key: "addProductsToWishList",
         value: function addProductsToWishList(productId) {
-          return this.http.put("https://artiara-api-github.el.r.appspot.com/api/v1/products/wishlist", productId).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
+          return this.http.put("/api/v1/products/wishlist", productId).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
             return res["Product"];
           }));
         }
       }, {
         key: "removeProductsFromWishList",
         value: function removeProductsFromWishList(productId) {
-          return this.http["delete"]("https://artiara-api-github.el.r.appspot.com/api/v1/products/wishlist/" + productId).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
+          return this.http["delete"]("/api/v1/products/wishlist/" + productId).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
             return res[""];
           }));
         }
       }, {
         key: "getCategoryData",
         value: function getCategoryData() {
-          return this.http.get("https://artiara-api-github.el.r.appspot.com/api/v1/products/category/data").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
+          return this.http.get("/api/v1/products/category/data").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
             return res["Category"];
           }));
         }
@@ -2879,14 +2879,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             keyword = "";
           }
 
-          return this.http.get("https://artiara-api-github.el.r.appspot.com/api/v1/products?title=" + encodeURIComponent(keyword) + "&category=" + encodeURIComponent(category) + "&outfitType=" + encodeURIComponent(outfitType) + "&brandName=" + encodeURIComponent(brandName) + "&color=" + encodeURIComponent(color) + "&priceRange=" + encodeURIComponent(priceRange) + "&neckType=" + encodeURIComponent(neckType) + "&fittingType=" + encodeURIComponent(fittingType) + "&sleeveLength=" + encodeURIComponent(sleeveLength) + "&patternType=" + encodeURIComponent(patternType) + "&borderStyle=" + encodeURIComponent(borderStyle) + "&retailerType=" + encodeURIComponent(retailerType) + "&ornamentation=" + encodeURIComponent(ornamentation)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
+          return this.http.get("/api/v1/products?title=" + encodeURIComponent(keyword) + "&category=" + encodeURIComponent(category) + "&outfitType=" + encodeURIComponent(outfitType) + "&brandName=" + encodeURIComponent(brandName) + "&color=" + encodeURIComponent(color) + "&priceRange=" + encodeURIComponent(priceRange) + "&neckType=" + encodeURIComponent(neckType) + "&fittingType=" + encodeURIComponent(fittingType) + "&sleeveLength=" + encodeURIComponent(sleeveLength) + "&patternType=" + encodeURIComponent(patternType) + "&borderStyle=" + encodeURIComponent(borderStyle) + "&retailerType=" + encodeURIComponent(retailerType) + "&ornamentation=" + encodeURIComponent(ornamentation)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
             return res["SearchResult"];
           }));
         }
       }, {
         key: "getSearchStatus",
         value: function getSearchStatus(spIds) {
-          return this.http.post("https://artiara-api-github.el.r.appspot.com/api/v1/products/search/", spIds).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
+          return this.http.post("/api/v1/products/search/", spIds).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (res) {
             return res["SearchResult"];
           }));
         }
