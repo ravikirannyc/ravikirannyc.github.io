@@ -2731,7 +2731,7 @@ const environment = {
     environmentName: 'NA',
     development: false,
     //host: 'https://www.artiara.in:4500/'
-    host: 'https://artiara-api-github.el.r.appspot.com'
+    host: 'https://artiara-api-github.el.r.appspot.com/'
 };
 /*
  * For easier debugging in development mode, you can import the following file
