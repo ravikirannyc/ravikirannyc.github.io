@@ -1479,22 +1479,22 @@ class ProductService {
     ngOnInit() {
     }
     getRetailersList() {
-        return this.http.get("/api/v1/retailer").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => {
+        return this.http.get("https://artiara-api-github.el.r.appspot.com/api/v1/retailer").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => {
             return res["Retailers"];
         }));
     }
     getProductsByCategory(category) {
-        return this.http.get("/api/v1/products/category/" + category).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => {
+        return this.http.get("https://artiara-api-github.el.r.appspot.com/api/v1/products/category/" + category).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => {
             return res["Products"];
         }));
     }
     getProductsBySimilarity(selectedProduct) {
-        return this.http.post("/api/v1/products/similar", selectedProduct).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => {
+        return this.http.post("https://artiara-api-github.el.r.appspot.com/api/v1/products/similar", selectedProduct).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => {
             return res["Products"];
         }));
     }
     getDropDownValues(itemName) {
-        return this.http.post("/api/v1/dropdown/items", itemName).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => {
+        return this.http.post("https://artiara-api-github.el.r.appspot.com/api/v1/dropdown/items", itemName).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => {
             return res["DropDownValues"];
         }));
     }
@@ -1514,7 +1514,7 @@ class ProductService {
         }));
     }
     getCategoryData() {
-        return this.http.get("/api/v1/products/category/data").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => {
+        return this.http.get("https://artiara-api-github.el.r.appspot.com/api/v1/products/category/data").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => {
             return res["Category"];
         }));
     }
@@ -1531,7 +1531,7 @@ class ProductService {
         if (Object(util__WEBPACK_IMPORTED_MODULE_2__["isNullOrUndefined"])(keyword)) {
             keyword = "";
         }
-        return this.http.get("/api/v1/products?title=" + encodeURIComponent(keyword) + "&category=" + encodeURIComponent(category) + "&outfitType=" + encodeURIComponent(outfitType)
+        return this.http.get("https://artiara-api-github.el.r.appspot.com/api/v1/products?title=" + encodeURIComponent(keyword) + "&category=" + encodeURIComponent(category) + "&outfitType=" + encodeURIComponent(outfitType)
             + "&brandName=" + encodeURIComponent(brandName) + "&color=" + encodeURIComponent(color) + "&priceRange=" + encodeURIComponent(priceRange)
             + "&neckType=" + encodeURIComponent(neckType) + "&fittingType=" + encodeURIComponent(fittingType)
             + "&sleeveLength=" + encodeURIComponent(sleeveLength) + "&patternType=" + encodeURIComponent(patternType)
@@ -1541,7 +1541,7 @@ class ProductService {
         }));
     }
     getSearchStatus(spIds) {
-        return this.http.post("/api/v1/products/search/", spIds).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => {
+        return this.http.post("https://artiara-api-github.el.r.appspot.com/api/v1/products/search/", spIds).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((res) => {
             return res["SearchResult"];
         }));
     }
